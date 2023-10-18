@@ -1,11 +1,20 @@
+import {
+  FaTruck,
+  FaRegMoneyBillAlt,
+  FaShieldVirus,
+  FaHeadset,
+} from "react-icons/fa";
+
 const DetailsSec = () => {
   return (
-    <div className="information-section container mx-auto my-5 px-2 sm:px-8">
+    <div className="information-section container max-w-screen-xl mx-auto my-10 mx-auto my-5 ">
       <div className="grid grid-cols-12 gap-5">
         <div className="col-span-12 flex sm:col-span-6 lg:col-span-3">
-          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 hover:shadow-lg xs:pl-[20%] sm:pl-5">
+          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 border-2 xs:pl-[20%] sm:pl-5">
             <div className="rounded-full border-2">
-              <i className="bi bi-truck flex p-3 text-[40px] text-primary-color"></i>
+              <i className="bi bi-truck flex p-3 text-[40px] text-primary-color">
+                <FaTruck />
+              </i>
             </div>
             <div>
               <h6 className="font-bold capitalize">Free shipping</h6>
@@ -16,9 +25,11 @@ const DetailsSec = () => {
           </div>
         </div>
         <div className="col-span-12 flex sm:col-span-6 lg:col-span-3">
-          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 hover:shadow-lg xs:pl-[20%] sm:pl-5">
+          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 border-2 xs:pl-[20%] sm:pl-5">
             <div className="rounded-full border-2">
-              <i className="bi bi-cash-coin flex p-3 text-[40px] text-primary-color"></i>
+              <i className="bi bi-cash-coin flex p-3 text-[40px] text-primary-color">
+                <FaRegMoneyBillAlt />
+              </i>
             </div>
             <div>
               <h6 className="font-bold capitalize">Money back</h6>
@@ -27,9 +38,11 @@ const DetailsSec = () => {
           </div>
         </div>
         <div className="col-span-12 flex sm:col-span-6 lg:col-span-3">
-          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 hover:shadow-lg xs:pl-[20%] sm:pl-5">
+          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 border-2 xs:pl-[20%] sm:pl-5">
             <div className="rounded-full border-2">
-              <i className="bi bi-shield-check flex p-3 text-[40px] text-primary-color"></i>
+              <i className="bi bi-shield-check flex p-3 text-[40px] text-primary-color">
+                <FaShieldVirus />
+              </i>
             </div>
             <div>
               <h6 className="font-bold capitalize">Secure payment</h6>
@@ -38,9 +51,11 @@ const DetailsSec = () => {
           </div>
         </div>
         <div className="col-span-12 flex sm:col-span-6 lg:col-span-3">
-          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 hover:shadow-lg xs:pl-[20%] sm:pl-5">
+          <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 border-2 xs:pl-[20%] sm:pl-5">
             <div className="rounded-full border-2">
-              <i className="bi bi-headset flex p-3 text-[40px] text-primary-color"></i>
+              <i className="bi bi-headset flex p-3 text-[40px] text-primary-color">
+                <FaHeadset />
+              </i>
             </div>
             <div>
               <h6 className="font-bold capitalize">Online support</h6>

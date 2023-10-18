@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import CartList from "./CartList";
 
 const Header = () => {
   const links = (
@@ -7,7 +8,13 @@ const Header = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/product">Product</NavLink>
+      </li>
+      <li>
+        <NavLink to="/add-product">Add Product</NavLink>
+      </li>{" "}
+      <li>
+        <NavLink to="/about">About Us</NavLink>
       </li>
     </>
   );
@@ -43,7 +50,7 @@ const Header = () => {
             <a className=" normal-case text-xl">SR Brand Shop</a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{links}</ul>
+            <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
           </div>
           <div className="navbar-end flex justify-end items-center gap-3">
             <div className="dropdown dropdown-end">
@@ -71,15 +78,18 @@ const Header = () => {
               </label>
               <div
                 tabIndex={0}
-                className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+                className="mt-3 z-[1] card card-compact dropdown-content w-80 bg-base-100 shadow"
               >
                 <div className="card-body">
                   <span className="font-bold text-lg">8 Items</span>
                   <span className="text-info">Subtotal: $999</span>
+                  <CartList />
+                  <CartList />
+                  <CartList />
                   <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View cart
-                    </button>
+                    <NavLink to="/cart" className="btn btn-primary btn-block">
+                      View All
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -95,23 +105,28 @@ const Header = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">
+                  <NavLink to="/profile" className="justify-between">
                     Profile
-                    <span className="badge">New</span>
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <NavLink to="/settings">Settings</NavLink>
                 </li>
                 <li>
                   <a>Logout</a>
                 </li>
               </ul>
             </div>
-            <button className="btn btn-outline btn-sm btn-success">
-              Register
-            </button>
-            <button className="btn btn-outline btn-sm btn-error">Login</button>
+            <NavLink to="/signup">
+              <button className="btn btn-outline btn-sm btn-success">
+                Register
+              </button>
+            </NavLink>
+            <NavLink to="signin">
+              <button className="btn btn-outline btn-sm btn-error">
+                Login
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>
