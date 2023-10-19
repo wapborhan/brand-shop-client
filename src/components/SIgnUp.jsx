@@ -1,12 +1,34 @@
 import { NavLink } from "react-router-dom";
 import { FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContex } from "../provider/AuthProvider";
 
 const SIgnUp = () => {
+  const { createUser } = useContext(AuthContex);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(errorCode, errorMessage);
+      });
+  };
+
   return (
     <div className="sign-up-section container mx-auto my-5 px-2 sm:px-8">
       <div className="mx-auto text-center max-w-[500px] rounded-lg bg-white p-5 shadow-lg">
         <div className="my-5 text-3xl font-bold">Create Account</div>
-        <form action="#">
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4">
             <div className="relative flex h-[40px]  items-center">
               <i className="bi bi-envelope absolute ml-2 flex text-[24px] text-gray-400">
@@ -14,9 +36,9 @@ const SIgnUp = () => {
               </i>
               <input
                 className="input border-2 border-gray-700 pl-10"
-                type="text"
+                type="email"
                 placeholder="Email"
-                required=""
+                name="email"
               />
             </div>
             <div className="relative flex h-[40px] items-center">
@@ -27,7 +49,7 @@ const SIgnUp = () => {
                 className="input border-2 border-gray-700 pl-10"
                 type="password"
                 placeholder="Password"
-                required=""
+                name="password"
               />
             </div>
 

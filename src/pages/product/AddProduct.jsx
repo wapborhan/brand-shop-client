@@ -41,7 +41,7 @@ const AddProduct = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="form  mx-40 my-10 space-y-4">
+          <div className="form  lg:mx-40 mx-5 lg:my-10 space-y-4">
             <div className="frist flex gap-5 justify-between">
               <div className="form-control w-full">
                 <label className="label">

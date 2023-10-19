@@ -9,6 +9,7 @@ import BrandProducts from "../pages/brands/BrandProducts";
 import SIgnUp from "../components/SIgnUp";
 import SignIn from "../components/SignIn";
 import Cart from "../pages/cart/Cart";
+import About from "../pages/About";
 
 const routes = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("http://localhost:3300/products"),
+        // loader: () => fetch("http://localhost:3300/products"),
       },
       {
         path: "/signup",
@@ -51,6 +52,10 @@ const routes = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
