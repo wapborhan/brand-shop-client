@@ -11,7 +11,7 @@ const HomePage = () => {
   const [brands, setBrands] = useState();
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("http://localhost:3300/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);

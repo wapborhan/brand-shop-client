@@ -77,6 +77,19 @@ const ProductDetails = () => {
                 </ul>
               </div>
             </div>
+            <div className="my-4">
+              <div className="clamp-5 break-all space-x-3">
+                <input
+                  className="border-2 py-2 px-2 rounded-md w-20"
+                  type="number"
+                  name="cartqty"
+                  id=""
+                />{" "}
+                <button className="bg-success py-2 px-4 twct-white font-bold rounded-lg">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="col-span-12">

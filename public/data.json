@@ -1,33 +1,33 @@
 [
   {
     "id": 1,
-    "name": "Apple",
+    "brand_name": "Apple",
     "image": "https://i.ibb.co/LNHLXCn/apple.jpg"
   },
 
   {
     "id": 2,
-    "name": "Samsung",
+    "brand_name": "Samsung",
     "image": "https://i.ibb.co/0j8tHVp/samsung.png"
   },
   {
     "id": 3,
-    "name": "Vivo",
+    "brand_name": "Vivo",
     "image": "https://i.ibb.co/rbCnDSX/vivo.png"
   },
   {
     "id": 4,
-    "name": "Walton",
+    "brand_name": "Walton",
     "image": "https://i.ibb.co/6RQzRwk/walton.png"
   },
   {
     "id": 5,
-    "name": "Asus",
+    "brand_name": "Asus",
     "image": "https://i.ibb.co/W27gNkb/asus.png"
   },
   {
     "id": 6,
-    "name": "Xiaomi",
+    "brand_name": "Xiaomi",
     "image": "https://i.ibb.co/qyHSXZj/xiaomi.png"
   }
 ]

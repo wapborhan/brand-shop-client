@@ -10,6 +10,9 @@ import SIgnUp from "../components/SIgnUp";
 import SignIn from "../components/SignIn";
 import Cart from "../pages/cart/Cart";
 import About from "../pages/About";
+import Profile from "../pages/profile/Profile";
+import UpdateProfile from "../pages/profile/UpdateProfile";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -20,7 +23,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        // loader: () => fetch("http://localhost:3300/products"),
+        loader: () => fetch("http://localhost:3300/products"),
       },
       {
         path: "/signup",
@@ -32,7 +35,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/add-product",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoutes>
+            <AddProduct />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/product",
@@ -41,17 +48,43 @@ const routes = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetails />,
+        element: (
+          <PrivateRoutes>
+            <ProductDetails />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3300/product/${params.id}`),
       },
       {
-        path: "/brand/apple",
+        path: "/brand/:name",
         element: <BrandProducts />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3300/brands/${params.name}`),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/settings",
+        element: (
+          <PrivateRoutes>
+            <UpdateProfile />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoutes>
+            <Cart />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/about",

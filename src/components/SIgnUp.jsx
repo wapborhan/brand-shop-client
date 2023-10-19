@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import { FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContex } from "../provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SIgnUp = () => {
   const { createUser } = useContext(AuthContex);
@@ -12,10 +14,23 @@ const SIgnUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (password.length < 6) {
+      toast("Password is less than 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast("Password don't have a capital letter");
+
+      return;
+    } else if (!/[!@#$%^&*()_+[\]{}|;:'"<>,.?/~`]/.test(password)) {
+      toast("Password don't have a special character");
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -60,6 +75,7 @@ const SIgnUp = () => {
               <span className="font-bold uppercase text-white">Sign Up</span>
             </button>
           </div>
+          <ToastContainer />
         </form>
 
         <div className="flex flex-col flex-wrap justify-center gap-5 mt-5 sm:flex-row">

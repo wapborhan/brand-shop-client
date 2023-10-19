@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-const BrandProductCard = () => {
+const BrandProductCard = ({ brandprdt }) => {
+  const { name, photoUrl } = brandprdt;
   return (
     <div className="col-span-6">
       <div className="cardlist-container transition-all-300 translateY-2 relative overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2]">
@@ -26,15 +27,15 @@ const BrandProductCard = () => {
             <a href="#">
               <img
                 className="card-object-fit h-full w-full"
-                src="https://megabyte.andevfrontend.com/images/cards/notebooks/note_1.jpg"
-                alt="product"
+                src={photoUrl}
+                alt={name}
               />
             </a>
           </div>
           <div className="w-full">
             <div className="my-1">
               <a className="clamp break-all text-lg font-medium" href="#">
-                Apple Macbook Air 13
+                {name}
               </a>
             </div>
             <div className="my-1">
