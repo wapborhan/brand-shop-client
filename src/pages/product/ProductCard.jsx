@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { _id, name, photoUrl, description, price, brand, type } = product;
+  const desc = description?.split("\n");
   return (
     <div className="card-container transition-all-300 translateY-2 relative flex h-full flex-col overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2] ">
       <div className="absolute top-[10px] right-[10px]">
@@ -49,7 +50,13 @@ const ProductCard = ({ product }) => {
         </span>
       </div>
       <div className="my-1">
-        <p className="clamp-2 text-sm text-gray-400">{description}</p>
+        <p className="clamp-2 text-sm text-gray-400">
+          <ul>
+            {desc?.map((spec, index) => (
+              <li key={index}>{spec}</li>
+            ))}
+          </ul>
+        </p>
       </div>
 
       <div className=" mt-4">

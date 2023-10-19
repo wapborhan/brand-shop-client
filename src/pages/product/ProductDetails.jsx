@@ -3,7 +3,9 @@ import { useLoaderData } from "react-router-dom";
 const ProductDetails = () => {
   const product = useLoaderData();
   const { _id, name, photoUrl, description, price, brand, type } = product;
-  console.log(product);
+  // console.log(product);
+
+  const desc = description?.split("\n");
 
   return (
     <div className="max-w-screen-xl mx-auto my-10">
@@ -59,14 +61,20 @@ const ProductDetails = () => {
                 {brand}
               </span>
             </div>
-            <div className="my-4">
-              <p className="clamp-5 break-all">{description}</p>
-            </div>
-
             <div className="mt-5 border-t border-gray-200 pt-5">
               <div>
                 <b>Categories: </b>
                 <span>{type}</span>
+              </div>
+            </div>
+            <h2 className="text-2xl my-3">Key Features</h2>
+            <div className="my-4">
+              <div className="clamp-5 break-all">
+                <ul>
+                  {desc?.map((spec, index) => (
+                    <li key={index}>{spec}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
