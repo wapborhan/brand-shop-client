@@ -19,7 +19,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("/data.json"),
+        loader: () => fetch("http://localhost:3300/products"),
       },
       {
         path: "/signup",
@@ -36,6 +36,7 @@ const routes = createBrowserRouter([
       {
         path: "/product",
         element: <Product />,
+        loader: () => fetch("http://localhost:3300/products"),
       },
       {
         path: "/product/1",

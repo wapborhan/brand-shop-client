@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
 
 const SignIn = () => {
   return (
     <div className="sign-up-section container mx-auto my-5 px-2 sm:px-8">
-      <div className="mx-auto text-center max-w-[500px] rounded-lg bg-white p-5">
-        <div className="my-5">SR Brand Shop</div>
+      <div className="mx-auto text-center max-w-[500px] rounded-lg bg-white p-5 shadow-lg">
+        <div className="my-5 text-3xl font-bold">Log In</div>
         <form action="#">
           <div className="flex flex-col gap-4">
             <div className="relative flex h-[40px]  items-center">
               <i className="bi bi-envelope absolute ml-2 flex text-[24px] text-gray-400">
-                e
+                <FaEnvelope />
               </i>
               <input
                 className="input border-2 border-gray-700 pl-10"
@@ -20,7 +21,7 @@ const SignIn = () => {
             </div>
             <div className="relative flex h-[40px] items-center">
               <i className="bi bi-lock absolute ml-2 flex text-[24px] text-gray-400">
-                P
+                <FaLock />
               </i>
               <input
                 className="input border-2 border-gray-700 pl-10"
@@ -31,20 +32,20 @@ const SignIn = () => {
             </div>
 
             <button
-              className="btn-effect transition-all-300 h-full w-full rounded-lg bg-primary p-2"
+              className="btn-effect transition-all-300 h-full w-full rounded-lg bg-primary hover:bg-info p-2"
               type="submit"
             >
-              <span className="font-bold uppercase text-white">Sign Up</span>
+              <span className="font-bold uppercase text-white">Sign In</span>
             </button>
           </div>
         </form>
 
-        <div className="flex flex-col flex-wrap justify-center gap-5 sm:flex-row">
-          <button className="transition-all-300 flex h-[50px] min-w-[100px] items-center justify-center rounded-lg bg-success hover:scale-110">
-            <i className="bi bi-facebook flex text-3xl text-white">google</i>
-          </button>
-          <button className="transition-all-300 flex h-[50px] min-w-[100px] items-center justify-center rounded-lg bg-success hover:scale-110">
-            <i className="bi bi-twitter flex text-3xl text-white">github</i>
+        <div className="flex flex-col flex-wrap justify-center gap-5 mt-5 sm:flex-row">
+          <button className="transition-all-300 flex flex-auto gap-4 h-[50px] w-fill items-center justify-center rounded-lg bg-success hover:bg-primary text-white font-bold">
+            <i className="bi bi-facebook flex text-3xl text-white">
+              <FaGoogle />
+            </i>{" "}
+            Login With Google
           </button>
         </div>
         <div className="mt-5 flex flex-row items-center justify-center border-t border-t-gray-400 pt-5">
@@ -53,7 +54,7 @@ const SignIn = () => {
             to="/signup"
             className="  text-black font-bold ml-4 underline"
           >
-            Create Account
+            Create One
           </NavLink>
         </div>
       </div>

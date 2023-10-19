@@ -1,7 +1,8 @@
-import React from "react";
+import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 const Product = () => {
+  const loadProduct = useLoaderData();
   return (
     <div className="max-w-screen-xl mx-auto my-10">
       <div className="liner-container mt-5 flex justify-center border-b-2 border-[rgba(119,119,119,.17)]">
@@ -9,11 +10,10 @@ const Product = () => {
           Products
         </h1>
       </div>
-      <div className="grid grid-cols-4 gap-5 mt-10">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
+        {loadProduct.map((product) => {
+          return <ProductCard product={product} key={product?._id} />;
+        })}
       </div>
     </div>
   );

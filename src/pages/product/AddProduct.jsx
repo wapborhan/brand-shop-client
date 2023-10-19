@@ -19,7 +19,19 @@ const AddProduct = () => {
       description,
       photoUrl,
     };
-    console.log(inputData);
+
+    fetch("http://localhost:3300/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(inputData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Product Added successfully");
+        }
+        form.reset();
+      });
   };
   return (
     <div className="container max-w-6xl mx-auto">
