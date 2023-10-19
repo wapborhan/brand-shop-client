@@ -2,7 +2,7 @@ import { FaHeart, FaCartPlus, FaStar, FaRegHeart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { name, photoUrl, description, price, brand, type } = product;
+  const { _id, name, photoUrl, description, price, brand, type } = product;
   return (
     <div className="card-container transition-all-300 translateY-2 relative flex h-full flex-col overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2] ">
       <div className="absolute top-[10px] right-[10px]">
@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
 
       <div className=" mt-4">
         <NavLink
-          to="/product/1"
+          to={`/product/${_id}`}
           className="btn-effect transition-all-300 flex w-full items-center justify-center rounded-lg bg-primary p-2"
           href="#"
         >

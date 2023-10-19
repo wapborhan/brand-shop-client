@@ -1,4 +1,10 @@
+import { useLoaderData } from "react-router-dom";
+
 const ProductDetails = () => {
+  const product = useLoaderData();
+  const { _id, name, photoUrl, description, price, brand, type } = product;
+  console.log(product);
+
   return (
     <div className="max-w-screen-xl mx-auto my-10">
       <div className="product-details container mx-auto my-5 px-2 sm:px-8">
@@ -21,8 +27,8 @@ const ProductDetails = () => {
                     // style="transition-duration: 300ms; transform: translate3d(0px, 0px, 0px);"
                   >
                     <img
-                      src="https://megabyte.andevfrontend.com/images/product/prod-1.jpg"
-                      alt="product"
+                      src={photoUrl}
+                      alt={name}
                       // style="transition-duration: 300ms; transform: translate3d(0px, 0px, 0px) scale(1);"
                     />
                   </div>
@@ -31,14 +37,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <div className="my-1">
-              <a
-                className="clamp-2 transition-all-300 break-all text-2xl font-medium hover:text-primary-color"
-                href="#"
-              >
-                Ryzen 5 3600x
-              </a>
-            </div>
+            <div className="my-1 text-2xl font-bold">{name}</div>
             <div className="product-val-stock my-2 flex justify-between">
               <div className="flex">
                 <i className="bi bi-star-fill flex text-base text-star"></i>
@@ -47,64 +46,27 @@ const ProductDetails = () => {
                 <i className="bi bi-star-fill flex text-base text-star"></i>
                 <i className="bi bi-star-fill flex text-base text-gray-200"></i>
               </div>
-              <div className="ml-auto">
-                <span className="rounded-md bg-green-300 px-2 py-1 text-xs font-bold uppercase text-white">
-                  instock
-                </span>
-              </div>
+              <div className="ml-auto"></div>
             </div>
-            <div className="my-5 flex items-center gap-5">
+            <div className="my-5 flex items-center justify-between gap-5">
               <div className="flex rounded-lg bg-white px-3 py-2 text-primary-color shadow">
-                <span className="text-sm">$</span>
-                <span className="text-2xl font-semibold leading-7">37.00</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-md font-semibold uppercase text-green-400">
-                  25% Off
-                </span>
-                <span className="prev-price text-sm text-primary-color line-through">
-                  $50.00
+                <span className="text-2xl font-semibold leading-7">
+                  Price: {price}
+                  {" ৳"}
                 </span>
               </div>
+              <span className="rounded-md bg-green-300 px-2 py-1 text-xs font-bold uppercase text-black">
+                {brand}
+              </span>
             </div>
             <div className="my-4">
-              <p className="clamp-5 break-all">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-                cupiditate repellat magni exercitationem non, quaerat
-                consequatur. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Earum cupiditate.
-              </p>
+              <p className="clamp-5 break-all">{description}</p>
             </div>
 
             <div className="mt-5 border-t border-gray-200 pt-5">
               <div>
                 <b>Categories: </b>
-                <span>
-                  <a href="#" className="text-zinc-500">
-                    Hardware
-                  </a>
-                  ,
-                  <a href="#" className="text-zinc-500">
-                    Processors
-                  </a>
-                </span>
-              </div>
-              <div className="flex gap-2">
-                <b>Share:</b>
-                <div className="flex items-center gap-[10px]">
-                  <a href="#">
-                    <i className="bi bi-facebook transition-all-300 flex text-zinc-500 hover:text-primary-color"></i>
-                  </a>
-                  <a href="#">
-                    <i className="bi bi-twitter transition-all-300 flex text-zinc-500 hover:text-primary-color"></i>
-                  </a>
-                  <a href="#">
-                    <i className="bi bi-whatsapp transition-all-300 flex text-zinc-500 hover:text-primary-color"></i>
-                  </a>
-                  <a href="#">
-                    <i className="bi bi-link-45deg transition-all-300 flex text-zinc-500 hover:text-primary-color"></i>
-                  </a>
-                </div>
+                <span>{type}</span>
               </div>
             </div>
           </div>
