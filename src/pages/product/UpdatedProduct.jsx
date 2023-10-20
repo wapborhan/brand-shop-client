@@ -1,7 +1,12 @@
+import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AddProduct = () => {
+const UpdatedProduct = () => {
+  const updateProduct = useLoaderData();
+
+  const { _id, name, photoUrl, description, rating, price, brand, type } =
+    updateProduct;
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +18,7 @@ const AddProduct = () => {
     const description = form.description.value;
     const photoUrl = form.photo.value;
 
-    const inputData = {
+    const updateData = {
       name,
       brand,
       type,
@@ -23,24 +28,25 @@ const AddProduct = () => {
       photoUrl,
     };
 
-    fetch("http://localhost:3300/products", {
-      method: "POST",
+    fetch(`http://localhost:3300/product/${_id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputData),
+      body: JSON.stringify(updateData),
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.insertedId) {
-          toast("Product Added successfully");
+        if (data.modifiedCount > 0) {
+          toast("Product Updated");
+        } else if (data.modifiedCount === 0) {
+          toast("Nothing Modified");
         }
-        form.reset();
       });
   };
   return (
     <div className="container max-w-6xl mx-auto">
       <div className="sect  py-4 w-full mx-auto">
         <div className="content space-y-5">
-          <h2 className="text-center text-3xl"> Add Product</h2>
+          <h2 className="text-center text-3xl"> Update Product</h2>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -53,6 +59,7 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="name"
+                  defaultValue={name}
                   placeholder="Enter Product Name"
                   className="input input-bordered w-full"
                 />
@@ -64,6 +71,7 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="brand"
+                  defaultValue={brand}
                   placeholder="Enter Brand Name"
                   className="input input-bordered w-full"
                 />
@@ -77,6 +85,7 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="type"
+                  defaultValue={type}
                   placeholder="Enter Product Type"
                   className="input input-bordered w-full"
                 />
@@ -88,6 +97,7 @@ const AddProduct = () => {
                 <input
                   type="number"
                   name="price"
+                  defaultValue={price}
                   placeholder="Enter Product Price"
                   className="input input-bordered w-full"
                 />
@@ -101,6 +111,7 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="rating"
+                  defaultValue={rating}
                   placeholder="Enter Product Rating"
                   className="input input-bordered w-full"
                 />
@@ -112,6 +123,7 @@ const AddProduct = () => {
                 <input
                   type="text"
                   name="photo"
+                  defaultValue={photoUrl}
                   placeholder="Enter Product Photo URL"
                   className="input input-bordered w-full"
                 />
@@ -128,6 +140,7 @@ const AddProduct = () => {
                 <textarea
                   type="text"
                   name="description"
+                  defaultValue={description}
                   placeholder="Enter Short description"
                   className="input input-bordered w-full h-40"
                 />
@@ -136,7 +149,7 @@ const AddProduct = () => {
             <div className="submit">
               <input
                 type="submit"
-                value="Add Product"
+                value="Update Product"
                 className="rounded-lg font-h2 border-2-[#331A15] bg-[#D2B48C] w-full p-3 font-bold text-[18px] text-[#331A15] cursor-pointer"
               />
               <ToastContainer />
@@ -148,4 +161,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdatedProduct;

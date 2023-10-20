@@ -1,4 +1,6 @@
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -15,7 +17,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        alert("Added Cart");
+        toast("Product Added to Cart");
       });
   };
 
@@ -83,18 +85,19 @@ const ProductDetails = () => {
             </div>
             <div className="my-4">
               <div className="clamp-5 break-all space-x-3">
-                <input
+                {/* <input
                   className="border-2 py-2 px-2 rounded-md w-20"
                   type="number"
                   name="cartqty"
                   id=""
-                />{" "}
+                />{" "} */}
                 <button
                   onClick={handleAddtoCart}
                   className="bg-success py-2 px-4 twct-white font-bold rounded-lg"
                 >
                   Add to Cart
                 </button>
+                <ToastContainer />
               </div>
             </div>
           </div>

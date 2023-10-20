@@ -13,6 +13,7 @@ import About from "../pages/About";
 import Profile from "../pages/profile/Profile";
 import UpdateProfile from "../pages/profile/UpdateProfile";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdatedProduct from "../pages/product/UpdatedProduct";
 
 const routes = createBrowserRouter([
   {
@@ -51,6 +52,16 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ProductDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3300/product/${params.id}`),
+      },
+      {
+        path: "/update-product/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdatedProduct />
           </PrivateRoutes>
         ),
         loader: ({ params }) =>

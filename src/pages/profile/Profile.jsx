@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { AuthContex } from "../../provider/AuthProvider";
 
-// import proImage from "h";
-
 const Profile = () => {
   const { user } = useContext(AuthContex);
-
+  console.log(user);
   const image = (
     <img
-      src="https://randomuser.me/api/portraits/women/21.jpg"
+      src="https://i.ibb.co/mCZdpyy/no-image.jpg"
       className="h-32 w-32 rounded-full border-4 border-white -mt-16 mr-4"
       alt=""
     />
@@ -16,7 +14,7 @@ const Profile = () => {
   return (
     <div className="profile">
       <div className="font-sans leading-tight min-h-screen bg-grey-lighter p-8">
-        <div className="max-w-sm mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+        <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg">
           <div
             className="bg-cover h-40"
             style={{
@@ -28,7 +26,7 @@ const Profile = () => {
             <div className="text-center sm:text-left sm:flex mb-4">
               {user?.photoURL ? user?.photoURL : image}
               <div className="py-2">
-                <h3 className="font-bold text-2xl mb-1">{user?.name}Name</h3>
+                <h3 className="font-bold text-2xl mb-1">{user?.name}</h3>
                 <div className="inline-flex text-grey-dark sm:flex items-center">
                   <svg
                     className="h-5 w-5 text-grey mr-1"
@@ -43,7 +41,7 @@ const Profile = () => {
                       d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
                     />
                   </svg>
-                  New York, NY
+                  {user?.email}
                 </div>
               </div>
             </div>
@@ -51,7 +49,8 @@ const Profile = () => {
           <div className="px-4 py-4">
             <div className="flex items-center text-grey-darker mb-4">
               <span>
-                <strong className="text-black">12</strong> Followers you know
+                <strong className="text-black">Account Create: </strong>{" "}
+                {user?.metadata?.creationTime}
               </span>
             </div>
           </div>

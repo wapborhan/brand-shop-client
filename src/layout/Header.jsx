@@ -23,6 +23,9 @@ const Header = () => {
         <NavLink to="/add-product">Add Product</NavLink>
       </li>{" "}
       <li>
+        <NavLink to="/cart">Cart</NavLink>
+      </li>{" "}
+      <li>
         <NavLink to="/about">About Us</NavLink>
       </li>
     </>
@@ -62,7 +65,7 @@ const Header = () => {
             <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
           </div>
           <div className="navbar-end flex justify-end items-center gap-3">
-            <div className="dropdown dropdown-end">
+            {/* <div className="dropdown dropdown-end">
               <label
                 tabIndex={0}
                 className="btn btn-ghost btn-circle border-gray-300"
@@ -102,13 +105,13 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {user ? (
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <img src="https://i.ibb.co/mCZdpyy/no-image.jpg" />
                   </div>
                 </label>
                 <ul
