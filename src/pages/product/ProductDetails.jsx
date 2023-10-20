@@ -4,8 +4,20 @@ const ProductDetails = () => {
   const product = useLoaderData();
   const { _id, name, photoUrl, description, price, brand, type } = product;
   // console.log(product);
-
   const desc = description?.split("\n");
+
+  const handleAddtoCart = () => {
+    fetch("http://localhost:3300/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        alert("Added Cart");
+      });
+  };
 
   return (
     <div className="max-w-screen-xl mx-auto my-10">
@@ -20,19 +32,11 @@ const ProductDetails = () => {
               >
                 <div
                   className="swiper-slide swiper-slide-visible swiper-slide-active"
-                  // style="width: 566px; opacity: 1; transform: translate3d(0px, 0px, 0px);"
                   role="group"
                   aria-label="1 / 3"
                 >
-                  <div
-                    className="swiper-zoom-container"
-                    // style="transition-duration: 300ms; transform: translate3d(0px, 0px, 0px);"
-                  >
-                    <img
-                      src={photoUrl}
-                      alt={name}
-                      // style="transition-duration: 300ms; transform: translate3d(0px, 0px, 0px) scale(1);"
-                    />
+                  <div className="swiper-zoom-container">
+                    <img src={photoUrl} alt={name} />
                   </div>
                 </div>
               </div>
@@ -85,7 +89,10 @@ const ProductDetails = () => {
                   name="cartqty"
                   id=""
                 />{" "}
-                <button className="bg-success py-2 px-4 twct-white font-bold rounded-lg">
+                <button
+                  onClick={handleAddtoCart}
+                  className="bg-success py-2 px-4 twct-white font-bold rounded-lg"
+                >
                   Add to Cart
                 </button>
               </div>

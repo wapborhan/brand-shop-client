@@ -16,7 +16,7 @@ const Product = () => {
           ? loadProduct.map((product) => {
               return <ProductCard product={product} key={product?._id} />;
             })
-          : ""}
+          : "No Products Found"}
       </div>
     </div>
   );

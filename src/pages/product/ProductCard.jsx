@@ -50,13 +50,13 @@ const ProductCard = ({ product }) => {
         </span>
       </div>
       <div className="my-1">
-        <p className="clamp-2 text-sm text-gray-400">
+        <div className="clamp-2 text-sm text-gray-400">
           <ul>
             {desc?.map((spec, index) => (
               <li key={index}>{spec}</li>
             ))}
           </ul>
-        </p>
+        </div>
       </div>
 
       <div className=" mt-4">
