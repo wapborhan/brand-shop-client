@@ -10,9 +10,23 @@ const Cart = () => {
         setCartdata(data);
       });
   }, []);
-  console.log(cartdata);
+  // console.log(cartdata);
 
-  const handedeleteCartPrdt = () => {};
+  const handedeleteCartPrdt = (_id) => {
+    fetch(`http://localhost:3300/cart/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          // toast("Your file has been deleted.");
+          console.log(data);
+          const remaining = cartdata.filter((item) => item._id !== _id);
+          setCartdata(remaining);
+        }
+      });
+  };
   return (
     <div className="max-w-screen-xxl mx-auto">
       <div className="banner-title-section container mx-auto my-5 px-2 sm:px-8">
@@ -39,7 +53,7 @@ const Cart = () => {
           </a>
         </div>
 
-        <form className="grid grid-cols-12 gap-5 rounded-lg bg-white p-2 xs:p-5">
+        <div className="grid grid-cols-12 gap-5 rounded-lg bg-white p-2 xs:p-5">
           <div className="col-span-12 lg:col-span-12">
             <div className="hidden overflow-x-auto lg:block">
               <table className="w-full min-w-[800px] text-left">
@@ -88,7 +102,7 @@ const Cart = () => {
                         </td>
                         <td className="p-2">
                           <button
-                            onClick={handedeleteCartPrdt}
+                            onClick={() => handedeleteCartPrdt(item?._id)}
                             className="tippy tippy-remove btn-delete transition-all-300 text-slate-400 hover:text-primary-color"
                           >
                             X
@@ -101,7 +115,7 @@ const Cart = () => {
               </table>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
