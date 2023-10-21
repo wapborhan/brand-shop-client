@@ -44,7 +44,7 @@ const SignIn = () => {
   };
   return (
     <div className="sign-up-section container mx-auto my-5 px-2 sm:px-8">
-      <div className="mx-auto text-center max-w-[500px] rounded-lg bg-white p-5 shadow-lg">
+      <div className="mx-auto text-center max-w-[500px] rounded-lg border-2 p-5 shadow-lg">
         <div className="my-5 text-3xl font-bold">Log In</div>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4">

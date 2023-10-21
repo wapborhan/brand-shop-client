@@ -6,7 +6,7 @@ const BrandProductCard = ({ brandprdt }) => {
   const desc = description?.split("\n");
   return (
     <div className="lg:col-span-6 col-span-12">
-      <div className="cardlist-container transition-all-300 translateY-2 relative overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2]">
+      <div className="cardlist-container transition-all-300 translateY-2 relative overflow-hidden rounded-lg  p-5 shadow-md hover:z-[2]">
         <div className="absolute top-[10px] right-[10px]">
           {/* <div className="favorite-product p-[2px]">
             <a className="tippy tippy-left-card-view btn-open-modal transition-all-300 flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-[rgba(78,131,237,0.87)] hover:bg-primary-hover">
@@ -16,7 +16,7 @@ const BrandProductCard = ({ brandprdt }) => {
             </a>
           </div> */}
         </div>
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row gap-5">
           <div className="h-[240px] overflow-hidden rounded-lg sm:min-w-[240px]">
             <a href="#">
               <img
