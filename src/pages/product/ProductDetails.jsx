@@ -43,7 +43,7 @@ const ProductDetails = () => {
   return (
     <div className="max-w-screen-xl mx-auto my-10">
       <div className="product-details container mx-auto my-5 px-2 sm:px-8">
-        <div className="grid grid-cols-12 gap-5 rounded-lg bg-white p-2 xs:p-8">
+        <div className="grid grid-cols-12 gap-5 rounded-lg  p-2 xs:p-8">
           <div className="col-span-12 max-h-[500px] md:col-span-6">
             <div className="swiper swiper-top group relative flex items-center rounded-lg swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
               <div

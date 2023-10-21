@@ -10,14 +10,16 @@ const BrandProducts = () => {
   return (
     <>
       {" "}
-      <div className="max-w-screen-xl mx-auto">
+      <div className="lg:max-w-screen-xl lg:mx-auto ">
         <AdvSlider />
-        <div className="grid grid-cols-12 gap-5 my-10">
-          {loadbrandsProduct.map((brandprdt) => {
-            return (
-              <BrandProductCard brandprdt={brandprdt} key={brandprdt?.__id} />
-            );
-          })}
+        <div className="lg:px-0 px-5">
+          <div className="grid grid-cols-12 gap-5 my-10">
+            {loadbrandsProduct?.map((brandprdt) => {
+              return (
+                <BrandProductCard brandprdt={brandprdt} key={brandprdt?.__id} />
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

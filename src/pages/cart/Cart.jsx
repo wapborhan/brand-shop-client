@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const [cartdata, setCartdata] = useState([]);
@@ -17,10 +20,8 @@ const Cart = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.deletedCount > 0) {
-          // toast("Your file has been deleted.");
-          console.log(data);
+          toast("Your file has been deleted.");
           const remaining = cartdata.filter((item) => item._id !== _id);
           setCartdata(remaining);
         }
@@ -39,7 +40,7 @@ const Cart = () => {
         {/* <!-- If the Shopping Cart is empty (replace hidden with flex) --> */}
 
         {cartdata.length > 0 ? (
-          <div className="grid grid-cols-12 gap-5 rounded-lg bg-white p-2 xs:p-5">
+          <div className="grid grid-cols-12 gap-5 rounded-lg  p-2 xs:p-5">
             <div className="col-span-12 lg:col-span-12">
               <div className=" overflow-x-auto lg:block">
                 <table className="w-full min-w-[800px] text-left">
@@ -93,6 +94,7 @@ const Cart = () => {
                             >
                               X
                             </button>
+                            <ToastContainer />
                           </td>
                         </tr>
                       );
@@ -108,14 +110,14 @@ const Cart = () => {
             <p className="text-lg font-semibold">
               There are no products in the cart.
             </p>
-            <a
+            <NavLink
               className="btn-effect transition-all-300 flex items-center justify-center gap-2 rounded-lg bg-primary-color p-2"
-              href="#"
+              to="/product"
             >
-              <span className="font-bold uppercase text-white">
+              <span className="font-bold uppercase text-black">
                 Go to the store
               </span>
-            </a>
+            </NavLink>
           </div>
         )}
       </div>

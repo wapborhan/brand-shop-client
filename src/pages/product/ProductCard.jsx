@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="card-container transition-all-300 translateY-2 relative flex h-full flex-col overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2] ">
+    <div className="card-container transition-all-300 translateY-2 relative flex h-full flex-col overflow-hidden rounded-lg border-2 p-5 shadow-md hover:z-[2] ">
       <div className="absolute top-[10px] right-[10px]">
         {/* <div className="p-[2px]">
           <a className="tippy tippy-left-card-view btn-open-modal transition-all-300 flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-[rgba(78,131,237,0.87)] hover:bg-primary-hover">

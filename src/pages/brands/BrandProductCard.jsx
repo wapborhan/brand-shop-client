@@ -5,7 +5,7 @@ const BrandProductCard = ({ brandprdt }) => {
   const { _id, name, photoUrl, description, price, brand, type } = brandprdt;
   const desc = description?.split("\n");
   return (
-    <div className="col-span-6">
+    <div className="lg:col-span-6 col-span-12">
       <div className="cardlist-container transition-all-300 translateY-2 relative overflow-hidden rounded-lg bg-white p-5 shadow-md hover:z-[2]">
         <div className="absolute top-[10px] right-[10px]">
           {/* <div className="favorite-product p-[2px]">

@@ -6,6 +6,7 @@ import Brands from "./brands/Brands";
 import Product from "./product/Product";
 import CatBanner from "./CatBanner";
 import About from "./About";
+import ToogleTheme from "../components/ToogleTheme";
 
 const HomePage = () => {
   const [brands, setBrands] = useState();

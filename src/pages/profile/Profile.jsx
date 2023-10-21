@@ -20,8 +20,8 @@ const Profile = () => {
   );
   return (
     <div className="profile">
-      <div className="font-sans leading-tight  bg-grey-lighter p-8">
-        <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg">
+      <div className="font-sans leading-tight bg-grey-lighter p-8">
+        <div className="max-w-lg mx-auto border-2  rounded-lg shadow-lg">
           <div
             className="bg-cover h-40"
             style={{

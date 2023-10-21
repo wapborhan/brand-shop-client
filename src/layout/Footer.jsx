@@ -2,26 +2,26 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <section className="flex flex-col  font-poppins">
-      <div className="w-full bg-green-700 dark:bg-gray-900 ">
+    <section className="flex flex-col border-t-2 font-poppins">
+      <div className="w-full ">
         <div className="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0">
           <div className="flex flex-wrap py-10 -mx-3">
             <div className="w-full px-4 mb-11 md:w-1/2 lg:w-4/12 lg:mb-0 space-y-3">
               <a
                 href="#"
-                className="inline-block mb-4 text-xl font-bold text-gray-200 dark:text-gray-400"
+                className="inline-block mb-4 text-xl font-bold text-black  "
               >
                 About Company
               </a>
 
-              <p className="text-base font-normal leading-6 text-gray-300 lg:w-64 dark:text-gray-400">
+              <p className="text-base font-normal leading-6  text-gray-900lg:w-64  ">
                 SR Brand Shop has been founded on 1 October 2023. From then to
                 now, SR Brand Shop has won the heart of many people and now is a
                 country-wide renowned brand.
               </p>
             </div>
             <div className="w-full px-4 md:w-1/4 lg:w-2/12 mb-11 lg:mb-0">
-              <h2 className="mb-4 text-xl font-bold text-gray-200 dark:text-gray-400">
+              <h2 className="mb-4 text-xl font-bold text-black  ">
                 Quick Links{" "}
               </h2>
               <ul>
@@ -31,7 +31,7 @@ const Footer = () => {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="w-3 h-3 mr-1 text-white dark:text-gray-400 bi bi-chevron-right"
+                    className="w-3 h-3 mr-1 text-white  bi bi-chevron-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -41,7 +41,7 @@ const Footer = () => {
                   </svg>
                   <NavLink
                     to="/"
-                    className="inline-block text-base font-normal text-gray-300 dark:text-gray-400"
+                    className="inline-block text-base font-normal   "
                   >
                     Home
                   </NavLink>
@@ -52,7 +52,7 @@ const Footer = () => {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="w-3 h-3 mr-1 text-white dark:text-gray-400 bi bi-chevron-right"
+                    className="w-3 h-3 mr-1 text-white   bi bi-chevron-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -62,7 +62,7 @@ const Footer = () => {
                   </svg>
                   <NavLink
                     to="/about"
-                    className="inline-block text-base font-normal text-gray-300 dark:text-gray-400"
+                    className="inline-block text-base font-normal   "
                   >
                     About Us
                   </NavLink>
@@ -73,7 +73,7 @@ const Footer = () => {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="w-3 h-3 mr-1 text-white dark:text-gray-400 bi bi-chevron-right"
+                    className="w-3 h-3 mr-1 text-white   bi bi-chevron-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -83,7 +83,7 @@ const Footer = () => {
                   </svg>
                   <NavLink
                     to="/product"
-                    className="inline-block text-base font-normal text-gray-300 dark:text-gray-400"
+                    className="inline-block text-base font-normal   "
                   >
                     Product
                   </NavLink>
@@ -91,9 +91,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full px-4 md:w-1/4 lg:w-2/12  lg:mb-0">
-              <h2 className="mb-4 text-xl font-bold text-gray-200 dark:text-gray-400">
-                Features{" "}
-              </h2>
+              <h2 className="mb-4 text-xl font-bold text-black  ">Features </h2>
               <ul>
                 <li className="flex items-center mb-4 ">
                   <svg
@@ -101,7 +99,7 @@ const Footer = () => {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="w-3 h-3 mr-1 text-white dark:text-gray-400 bi bi-chevron-right"
+                    className="w-3 h-3 mr-1 text-white   bi bi-chevron-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -111,7 +109,7 @@ const Footer = () => {
                   </svg>
                   <NavLink
                     to="/add-product"
-                    className="inline-block text-base font-normal text-gray-300 dark:text-gray-400"
+                    className="inline-block text-base font-normal   "
                   >
                     Add Products
                   </NavLink>
@@ -122,7 +120,7 @@ const Footer = () => {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    className="w-3 h-3 mr-1 text-white dark:text-gray-400 bi bi-chevron-right"
+                    className="w-3 h-3 mr-1 text-white   bi bi-chevron-right"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -132,7 +130,7 @@ const Footer = () => {
                   </svg>
                   <NavLink
                     to="/cart"
-                    className="inline-block text-base font-normal text-gray-300 dark:text-gray-400"
+                    className="inline-block text-base font-normal   "
                   >
                     Cart
                   </NavLink>
@@ -140,7 +138,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full px-4 lg:block hidden  mb-2 lg:mb-0 md:w-1/3 lg:w-4/12">
-              <h2 className="mb-4 text-lg font-bold text-gray-200 dark:text-gray-400">
+              <h2 className="mb-4 text-lg font-bold text-black  ">
                 Payment With{" "}
               </h2>
               <div className="flex items-center mt-4 ">
@@ -166,7 +164,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-4 text-center text-gray-300 bg-green-900 dark:bg-gray-800 dark:text-gray-400">
+      <div className="py-4 text-center  text-white  bg-black  ">
         <span>© Copyright 2022 . SR Brand Shop All Rights Reserved</span>
       </div>
     </section>
