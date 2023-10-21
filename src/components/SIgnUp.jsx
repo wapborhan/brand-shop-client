@@ -29,13 +29,13 @@ const SIgnUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         form.reset();
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(errorCode, errorMessage);
+
+        toast(errorMessage);
       });
   };
 

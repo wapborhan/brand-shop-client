@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const CatBanner = () => {
   return (
     <div className="banners-section-2 container mx-auto my-5 ">
@@ -6,7 +8,7 @@ const CatBanner = () => {
           <div className="overlay-gradient absolute z-[1] h-full w-full"></div>
           <img
             className="transition-all-300 h-full w-full object-cover hover:transform group-hover:scale-110"
-            src="https://megabyte.andevfrontend.com/images/categories/sec-notebooks.jpg"
+            src="https://i.ibb.co/vL74bkp/sec-notebooks.jpg"
             alt="banner-img"
           />
           <div className="absolute top-0 left-0 flex h-full w-full items-center">
@@ -17,12 +19,13 @@ const CatBanner = () => {
               <p className="my-5 text-white drop-shadow-md">
                 Choose the ideal laptop for you!
               </p>
-              <a
+              <NavLink
+                to="/product"
                 className="btn-effect inline-block rounded-lg bg-primary py-2 px-3 text-white"
                 href="#"
               >
                 <span>Show more</span>
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -30,7 +33,7 @@ const CatBanner = () => {
           <div className="overlay-gradient absolute z-[1] h-full w-full"></div>
           <img
             className="transition-all-300 h-full w-full object-cover hover:transform group-hover:scale-110"
-            src="https://megabyte.andevfrontend.com/images/categories/sec-desktops.jpg"
+            src="https://i.ibb.co/hcZnmx2/sec-desktops.jpg"
             alt="banner-img"
           />
           <div className="absolute top-0 left-0 flex h-full w-full items-center">
@@ -41,12 +44,13 @@ const CatBanner = () => {
               <p className="my-5 text-white drop-shadow-md">
                 Build your PC at the best price!
               </p>
-              <a
+              <NavLink
+                to="/product"
                 className="btn-effect inline-block rounded-lg bg-primary py-2 px-3 text-white"
                 href="#"
               >
                 <span>Show more</span>
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

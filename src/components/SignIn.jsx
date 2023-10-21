@@ -20,7 +20,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         if (user) {
-          navigate(location?.state ? location.state : "/");
+          navigate(location?.state ? location.state : "/settings");
         }
         toast("Successfully logged in");
         form.reset();

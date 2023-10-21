@@ -7,7 +7,7 @@ import {
 
 const DetailsSec = () => {
   return (
-    <div className="information-section container max-w-screen-xl  my-10 mx-auto ">
+    <div className="information-section container lg:max-w-screen-xl  my-10 mx-auto ">
       <div className="grid grid-cols-12 gap-5">
         <div className="col-span-12 flex sm:col-span-6 lg:col-span-3">
           <div className="transition-all-300 flex w-full items-center gap-4 rounded-lg bg-white p-5 border-2 xs:pl-[20%] sm:pl-5">

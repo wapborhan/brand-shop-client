@@ -1,24 +1,43 @@
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
+  const [cartdata, setCartdata] = useState([]);
+
   const product = useLoaderData();
-  const { _id, name, photoUrl, description, price, brand, type } = product;
-  // console.log(product);
+
+  const { _id, name, photoUrl, description, price, brand, type, rating } =
+    product;
+
   const desc = description?.split("\n");
 
-  const handleAddtoCart = () => {
-    fetch("http://localhost:3300/cart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(product),
-    })
+  useEffect(() => {
+    fetch("https://server-sr-brand-shop.vercel.app/cart")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        toast("Product Added to Cart");
+        setCartdata(data);
       });
+  }, []);
+
+  const handleAddtoCart = () => {
+    const matchProduct = cartdata.find((product) => product._id === _id);
+
+    if (matchProduct) {
+      toast("This Product already exists.");
+    } else {
+      fetch("https://server-sr-brand-shop.vercel.app/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast("Product Added to Cart");
+        });
+    }
   };
 
   return (
@@ -45,27 +64,15 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <div className="my-1 text-2xl font-bold">{name}</div>
-            <div className="product-val-stock my-2 flex justify-between">
-              <div className="flex">
-                <i className="bi bi-star-fill flex text-base text-star"></i>
-                <i className="bi bi-star-fill flex text-base text-star"></i>
-                <i className="bi bi-star-fill flex text-base text-star"></i>
-                <i className="bi bi-star-fill flex text-base text-star"></i>
-                <i className="bi bi-star-fill flex text-base text-gray-200"></i>
-              </div>
-              <div className="ml-auto"></div>
-            </div>
+            <div className="my-1 text-3xl font-bold">{name}</div>
+
             <div className="my-5 flex items-center justify-between gap-5">
-              <div className="flex rounded-lg bg-white px-3 py-2 text-primary-color shadow">
+              <div className="flex text-primary-color ">
                 <span className="text-2xl font-semibold leading-7">
                   Price: {price}
                   {" ৳"}
                 </span>
               </div>
-              <span className="rounded-md bg-green-300 px-2 py-1 text-xs font-bold uppercase text-black">
-                {brand}
-              </span>
             </div>
             <div className="mt-5 border-t border-gray-200 pt-5">
               <div>
@@ -73,16 +80,19 @@ const ProductDetails = () => {
                 <span>{type}</span>
               </div>
             </div>
-            <h2 className="text-2xl my-3">Key Features</h2>
-            <div className="my-4">
-              <div className="clamp-5 break-all">
-                <ul>
-                  {desc?.map((spec, index) => (
-                    <li key={index}>{spec}</li>
-                  ))}
-                </ul>
+            <div className="mt-5 border-t border-gray-200 pt-5">
+              <div>
+                <b>Brand: </b>
+                <span>{brand}</span>
               </div>
             </div>
+            <div className="mt-5 border-t border-gray-200 pt-5">
+              <div>
+                <b>Rating: </b>
+                <span>{rating}</span>
+              </div>
+            </div>
+
             <div className="my-4">
               <div className="clamp-5 break-all space-x-3">
                 {/* <input
@@ -111,59 +121,13 @@ const ProductDetails = () => {
             <div className="see-more relative pb-5">
               <div className="see-more-container gradient-bottom max-h-[220px] overflow-hidden">
                 <div className="see-more-content">
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum dolor sit amet consectetur
-                    adipisicing elit. Unde sapiente quisquam placeat excepturi
-                    sunt mollitia vero cumque, aliquam libero veniam odit
-                    inventore totam quis! Hic quis perferendis quaerat enim
-                    magni.
-                  </p>
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum dolor sit amet consectetur
-                    adipisicing elit. Repellat culpa quidem reprehenderit dolor
-                    aperiam, eius consequatur est deserunt. Nisi nesciunt
-                    repellendus dolorem quam obcaecati atque animi quas debitis
-                    qui harum.
-                  </p>
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum, dolor sit amet
-                    consectetur adipisicing elit. Aut, veritatis. Ea
-                    voluptatibus eveniet, quam dicta quisquam repellat maxime
-                    libero. Enim omnis quis, cumque facilis doloremque doloribus
-                    tempore expedita quia accusantium.
-                  </p>
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum dolor sit amet consectetur
-                    adipisicing elit. Unde sapiente quisquam placeat excepturi
-                    sunt mollitia vero cumque, aliquam libero veniam odit
-                    inventore totam quis! Hic quis perferendis quaerat enim
-                    magni.
-                  </p>
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum dolor sit amet consectetur
-                    adipisicing elit. Repellat culpa quidem reprehenderit dolor
-                    aperiam, eius consequatur est deserunt. Nisi nesciunt
-                    repellendus dolorem quam obcaecati atque animi quas debitis
-                    qui harum.
-                  </p>
-                  <p>
-                    Lorem Unde sapiente quisquam placeat excepturi sunt mollitia
-                    vero cumque, aliquam libero ipsum, dolor sit amet
-                    consectetur adipisicing elit. Aut, veritatis. Ea
-                    voluptatibus eveniet, quam dicta quisquam repellat maxime
-                    libero. Enim omnis quis, cumque facilis doloremque doloribus
-                    tempore expedita quia accusantium.
-                  </p>
+                  <ul>
+                    {desc?.map((spec, index) => (
+                      <li key={index}>{spec}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <button className="btn-see-more absolute bottom-0 z-10 flex w-full justify-center hover:text-primary-color">
-                <i className="bi bi-chevron-compact-down text-stroke-medium transition-all-300 flex text-xl"></i>
-              </button>
             </div>
           </div>
         </div>

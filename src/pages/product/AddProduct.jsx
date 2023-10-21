@@ -23,7 +23,7 @@ const AddProduct = () => {
       photoUrl,
     };
 
-    fetch("http://localhost:3300/products", {
+    fetch("https://server-sr-brand-shop.vercel.app/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputData),

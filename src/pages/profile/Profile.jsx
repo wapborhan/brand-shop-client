@@ -3,7 +3,7 @@ import { AuthContex } from "../../provider/AuthProvider";
 
 const Profile = () => {
   const { user } = useContext(AuthContex);
-  console.log(user);
+
   const image = (
     <img
       src="https://i.ibb.co/mCZdpyy/no-image.jpg"
@@ -11,9 +11,16 @@ const Profile = () => {
       alt=""
     />
   );
+  const userImage = (
+    <img
+      src={user?.photoURL}
+      className="h-32 w-32 rounded-full border-4 border-white -mt-16 mr-4"
+      alt=""
+    />
+  );
   return (
     <div className="profile">
-      <div className="font-sans leading-tight min-h-screen bg-grey-lighter p-8">
+      <div className="font-sans leading-tight  bg-grey-lighter p-8">
         <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg">
           <div
             className="bg-cover h-40"
@@ -24,23 +31,19 @@ const Profile = () => {
           ></div>
           <div className="border-b px-4 pb-6">
             <div className="text-center sm:text-left sm:flex mb-4">
-              {user?.photoURL ? user?.photoURL : image}
+              {user?.photoURL ? userImage : image}
               <div className="py-2">
-                <h3 className="font-bold text-2xl mb-1">{user?.name}</h3>
+                <h3 className="font-bold text-2xl mb-1">{user?.displayName}</h3>
                 <div className="inline-flex text-grey-dark sm:flex items-center">
                   <svg
-                    className="h-5 w-5 text-grey mr-1"
-                    fill="currentColor"
+                    className="mr-2"
+                    viewBox="0 0 8 6"
+                    width="18px"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
                   >
-                    <path
-                      className="heroicon-ui"
-                      d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                    />
+                    <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" />
                   </svg>
+
                   {user?.email}
                 </div>
               </div>
@@ -55,16 +58,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="card">
-        <form>
-          <label className="custom-file-upload fas">
-            <div className="img-wrap"></div>
-          </label>
-          <div className="name">{user?.displayName}</div>
-          <div className="status">{user?.email}</div>
-          <div className="status2">{user?.metadata?.creationTime}</div>
-        </form>
       </div>
     </div>
   );
